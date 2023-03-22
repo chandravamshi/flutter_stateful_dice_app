@@ -11,18 +11,27 @@ void main() {
   );
 }
 
-class DicePage extends StatelessWidget {
+class DicePage extends StatefulWidget {
   const DicePage({super.key});
 
-  // This widget is the root of your application.
+  @override
+  State<DicePage> createState() => _DicePageState();
+}
+
+class _DicePageState extends State<DicePage> {
+  int leftimage = 5;
   @override
   Widget build(BuildContext context) {
     return Center(
         child: Row(children: [
       Expanded(
           child: TextButton(
-        onPressed: () {},
-        child: Image.asset('images/dice1.png'),
+        onPressed: () {
+          setState(() {
+            leftimage = 3;
+          });
+        },
+        child: Image.asset('images/dice$leftimage.png'),
       )),
       Expanded(
           child: TextButton(
